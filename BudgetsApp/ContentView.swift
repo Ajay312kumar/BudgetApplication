@@ -6,41 +6,45 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
     
-    @State var isPresented: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: []) private var budgetCategoryResults: FetchedResults<BudgetCategory>
+    @State private var isPresented: Bool = false
+    
+    var total: Double {
+        budgetCategoryResults.reduce(0) { result, budgetCategory in
+            return result + budgetCategory.total
+        }
+    }
     
     var body: some View {
-        
-        NavigationStack{
-        VStack {
-            List(budgetCategoryResults){ budgetCategory in
-                Text(budgetCategory.title ?? "No Name")
+        NavigationStack {
+            VStack {
                 
+                Text(total as NSNumber, formatter: NumberFormatter.currency)
+                    .fontWeight(.bold)
+                
+                BudgetListView(budgetCategoryResults: budgetCategoryResults)
             }
-        }
-            
-        .sheet(isPresented: $isPresented, content:{
-            AddBudgetCategoryView()
-        })
-            
-        .toolbar{
-            ToolbarItem(placement: .navigationBarTrailing){
-                Button("Add Category"){
-                    isPresented = true
+            .sheet(isPresented: $isPresented, content: {
+                AddBudgetCategoryView()
+            })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add Category") {
+                        isPresented = true
+                    }
                 }
-            }
+            }.padding()
         }
-        .padding()
-            
-        
     }
 }
-}
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
