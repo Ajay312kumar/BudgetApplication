@@ -20,6 +20,18 @@ struct ContentView: View {
         }
     }
     
+    
+    private func deleteBudgetCategory(budgetCategory: BudgetCategory){
+        
+        viewContext.delete(budgetCategory)
+        do{
+            try viewContext.save()
+        }catch{
+            print(error)
+        }
+    }
+    
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -27,15 +39,7 @@ struct ContentView: View {
                 Text(total as NSNumber, formatter: NumberFormatter.currency)
                     .fontWeight(.bold)
                 
-                BudgetListView(budgetCategoryResults: budgetCategoryResults, onDeleteBudgetCategory: { BudgetCategory in
-                    viewContext.delete(BudgetCategory)
-                    do{
-                        try viewContext.save()
-                    }catch{
-                        print(error)
-                    }
-                    
-                })
+                BudgetListView(budgetCategoryResults: budgetCategoryResults, onDeleteBudgetCategory: deleteBudgetCategory)
             }
             .sheet(isPresented: $isPresented, content: {
                 AddBudgetCategoryView()
@@ -53,6 +57,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
     }
 }
