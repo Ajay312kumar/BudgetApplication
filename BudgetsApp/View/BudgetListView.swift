@@ -20,11 +20,14 @@ struct BudgetListView: View {
             if !budgetCategoryResults.isEmpty {
                 
                 ForEach(budgetCategoryResults) { budgetCategory in
-                    HStack {
-                        Text(budgetCategory.title ?? "")
-                        Spacer()
-                        VStack {
-                            Text(budgetCategory.total as NSNumber, formatter: NumberFormatter.currency)
+                   
+                    NavigationLink(value: budgetCategory){
+                        HStack {
+                            Text(budgetCategory.title ?? "")
+                            Spacer()
+                            VStack {
+                                Text(budgetCategory.total as NSNumber, formatter: NumberFormatter.currency)
+                            }
                         }
                     }
                 }.onDelete { indexSet in
@@ -36,6 +39,8 @@ struct BudgetListView: View {
                 Text("No budget categories exists.")
             }
             
+        }.navigationDestination(for: BudgetCategory.self) { budgetCategoryResults in
+            BudgetDetailView(budgetCategory: budgetCategoryResults)
         }
     }
 }
