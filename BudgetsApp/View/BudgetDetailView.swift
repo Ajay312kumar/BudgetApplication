@@ -36,6 +36,17 @@ struct BudgetDetailView: View {
         }
     }
     
+    private func deleteTransaction(_ transaction: Transaction){
+        viewContext.delete(transaction)
+        do{
+            try viewContext.save()
+        }catch{
+            print(error)
+        }
+        
+    }
+    
+    
     var body: some View {
        
         VStack(alignment: .leading){
@@ -77,7 +88,7 @@ struct BudgetDetailView: View {
             
             
             //Display the transaction
-            TransactionListView(request: BudgetCategory.transactionByCategoryRequest(budgetCategory))
+            TransactionListView(request: BudgetCategory.transactionByCategoryRequest(budgetCategory), onDeleteTransaction: deleteTransaction)
             
             Spacer()
         }.padding()

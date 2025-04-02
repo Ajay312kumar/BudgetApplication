@@ -13,6 +13,7 @@ struct BudgetListView: View {
     
     let budgetCategoryResults: FetchedResults<BudgetCategory>
     let onDeleteBudgetCategory: (BudgetCategory) -> Void
+    let onEditBudgetCategopry: (BudgetCategory) -> Void
     
     var body: some View {
         List {
@@ -32,7 +33,10 @@ struct BudgetListView: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(budgetCategory.overSpent ? .red : .green)
                             }
-                        }
+                        }.contentShape(Rectangle())
+                            .onLongPressGesture{
+                                onEditBudgetCategopry(budgetCategory)
+                            }
                     }
                 }.onDelete { indexSet in
                     

